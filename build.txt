@@ -1,0 +1,3 @@
+react-native bundle --platform android --dev false --entry-file familyAddress.android.js --bundle-output app/src/main/assets/familyAddress.android.bundle
+react-native unbundle --platform android --dev false --entry-file familyAddress.android.js --bundle-output app/src/main/assets/familyAddress.android.bundle
+react-native unbundle --platform android --dev false --entry-file mainReact.android.js --bundle-output app/src/main/assets/mainReact.android.bundle
