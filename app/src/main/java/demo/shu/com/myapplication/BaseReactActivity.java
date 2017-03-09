@@ -81,6 +81,7 @@ public abstract class BaseReactActivity extends AppCompatActivity implements Def
         mReactInstanceManager = builder.build();
         mReactRootView.startReactApplication(mReactInstanceManager, getJsModuleName(), null);
         mDoubleTapReloadRecognizer = new DoubleTapReloadRecognizer();
+
     }
 
     abstract protected String getJsModuleName();
@@ -194,4 +195,5 @@ public abstract class BaseReactActivity extends AppCompatActivity implements Def
             mPermissionListener = null;
         }
     }
+
 }

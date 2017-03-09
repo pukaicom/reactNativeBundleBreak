@@ -1,6 +1,8 @@
 package demo.shu.com.myapplication;
 
 import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.Arguments;
@@ -23,29 +25,34 @@ import java.util.TimerTask;
  */
 public class HomeAddressReactModle extends ReactContextBaseJavaModule {
     private Activity context;
+    private ReactApplicationContext reactApplicationContext;
 
     public HomeAddressReactModle(final ReactApplicationContext reactContext, Activity context) {
         super(reactContext);
         this.context = context;
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                //发送事件
-                WritableMap params = Arguments.createMap();
-                params.putInt("name", 666);
-                reactContext
-                        .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                        .emit("test", params);
-
-            }
-        };
-        Timer timer = new Timer();
-        timer.schedule(task, 3000, 3000);
+        reactApplicationContext = reactContext;
+        new Handler(Looper.getMainLooper()).postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        gotoMainPage();
+                    }
+                }, 3000
+        );
     }
 
     @Override
     public String getName() {
         return "NativeMethod";
+    }
+
+    public void gotoMainPage() {
+        //发送事件
+        WritableMap params = Arguments.createMap();
+        params.putInt("name", 666);
+        reactApplicationContext
+                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit("test", params);
     }
 
     /**
@@ -88,6 +95,10 @@ public class HomeAddressReactModle extends ReactContextBaseJavaModule {
     public void setDefaultAddress(final String addrId, final Callback successCallback, final Callback failedCallback) {
         successCallback.invoke(addrId);
         // failedCallback.invoke();
-
+        WritableMap params = Arguments.createMap();
+        params.putInt("name", 777);
+        reactApplicationContext
+                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit("test", params);
     }
 }

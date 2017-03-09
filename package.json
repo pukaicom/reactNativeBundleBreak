@@ -1,7 +1,7 @@
 {
-  "name": "RentFive",
+  "name": "package.json",
   "version": "1.0.0",
-  "description": "",
+  "description": "reactNative bundle React Native的页面都会通过",
   "main": "index.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start"
@@ -20,5 +20,13 @@
     "jest": "16.0.2",
     "jest-react-native": "16.0.0",
     "react-test-renderer": "15.3.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pukaicom/reactNativeBundleBreak.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pukaicom/reactNativeBundleBreak/issues"
+  },
+  "homepage": "https://github.com/pukaicom/reactNativeBundleBreak#readme"
 }
