@@ -1,0 +1,1 @@
+__d(371,function(e,r,s,i){"use strict";function u(e,r){this.value=e,this.requestChange=r}function n(e){var r={value:void 0===e?t.PropTypes.any.isRequired:e.isRequired,requestChange:t.PropTypes.func.isRequired};return t.PropTypes.shape(r)}var t=r(13);u.PropTypes={link:n},s.exports=u});

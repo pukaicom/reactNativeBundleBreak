@@ -1,0 +1,1 @@
+__d(142,function(t,e,n,i){"use strict";var T=e(17),o=e(19),u=(e(18),{HOST:0,COMPOSITE:1,EMPTY:2,getType:function(t){return null===t||t===!1?u.EMPTY:o.isValidElement(t)?"function"==typeof t.type?u.COMPOSITE:u.HOST:void T("26",t)}});n.exports=u});

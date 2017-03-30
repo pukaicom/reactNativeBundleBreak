@@ -1,0 +1,1 @@
+__d(127,function(t,a,o,n){"use strict";var r=a(17),e=(a(18),{tagsStartAt:1,tagCount:1,allocateTag:function(){for(;this.reactTagIsNativeTopRootID(e.tagCount);)e.tagCount++;var t=e.tagCount;return e.tagCount++,t},assertRootTag:function(t){this.reactTagIsNativeTopRootID(t)||r("19",t)},reactTagIsNativeTopRootID:function(t){return t%10==1}});o.exports=e});

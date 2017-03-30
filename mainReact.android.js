@@ -26,7 +26,7 @@ class startComponent extends Component{
        _content = React.createElement(this.state.content,this.props);
        return _content;
       }else{
-      return (<Text>dadsassssssssssssssssssssssssssss</Text>)
+      return (<Text>I am the MainPage</Text>)
       }
    }
 }

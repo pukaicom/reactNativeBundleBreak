@@ -1,0 +1,1 @@
+__d(77,function(t,e,r,i){"use strict";var o=e(78),a=e(47),l=e(90),n=e(51),s=o.roundToNearestPixel(.4);0===s&&(s=1/o.get());var u={position:"absolute",left:0,right:0,top:0,bottom:0},b=a.register(u);r.exports={hairlineWidth:s,absoluteFill:b,absoluteFillObject:u,flatten:n,create:function(t){var e={};for(var r in t)l.validateStyle(r,t),e[r]=a.register(t[r]);return e}}});

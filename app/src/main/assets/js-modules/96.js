@@ -1,0 +1,1 @@
+__d(96,function(n,e,r,t){"use strict";function o(n,e){return function(r,t,o){return u[o]||void 0===r[t]||console.warn("`"+t+"` supplied to `"+o+"` has been deprecated. "+e),n(r,t,o,i.prop,null,c)}}var u=e(72),c=e(38),i=e(32);r.exports=o});

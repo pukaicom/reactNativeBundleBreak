@@ -1,5 +1,6 @@
 package demo.shu.com.myapplication;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -58,9 +59,9 @@ public abstract class BaseReactActivity extends AppCompatActivity implements Def
     protected void iniReactRootView() {
         ReactInstanceManager.Builder builder = ReactInstanceManager.builder()
                 .setApplication(getApplication())
-                .setJSMainModuleName(TextUtils.isEmpty(getMainModuleName()) ? JS_MAIN_BUNDLE_NAME : getMainModuleName())
-                .setUseDeveloperSupport(BuildConfig.DEBUG)
-                .addPackage(new MainReactPackage())
+                .setJSMainModuleName(TextUtils.isEmpty(getMainModuleName()) ? JS_MAIN_BUNDLE_NAME : getMainModuleName())//bundle的名字
+                .setUseDeveloperSupport(BuildConfig.DEBUG)//支持debug 摇一摇 reload页面
+                .addPackage(new MainReactPackage())//添加RN提供的原生模块
                 .setInitialLifecycleState(LifecycleState.BEFORE_CREATE);
         String jsBundleFile = getJSBundleFile();
         File file = null;
@@ -68,15 +69,15 @@ public abstract class BaseReactActivity extends AppCompatActivity implements Def
             file = new File(jsBundleFile);
         }
         if (file != null && file.exists()) {
-            builder.setJSBundleFile(getJSBundleFile());
+            builder.setJSBundleFile(getJSBundleFile());//从手机的本地加载文件
             Log.i(TAG, "load bundle from local cache");
         } else {
             String bundleAssetName = getBundleAssetName();
-            builder.setBundleAssetName(TextUtils.isEmpty(bundleAssetName) ? JS_BUNDLE_LOCAL_FILE : bundleAssetName);
+            builder.setBundleAssetName(TextUtils.isEmpty(bundleAssetName) ? JS_BUNDLE_LOCAL_FILE : bundleAssetName);//从assets文件下读取加载
             Log.i(TAG, "load bundle from asset");
         }
         if (getPackages() != null) {
-            builder.addPackage(getPackages());
+            builder.addPackage(getPackages());//添加自定义的通信模块
         }
         mReactInstanceManager = builder.build();
         mReactRootView.startReactApplication(mReactInstanceManager, getJsModuleName(), null);
@@ -178,7 +179,7 @@ public abstract class BaseReactActivity extends AppCompatActivity implements Def
             super.onNewIntent(intent);
         }
     }
-
+    @TargetApi(23)
     @Override
     public void requestPermissions(String[] permissions, int requestCode, PermissionListener listener) {
         mPermissionListener = listener;
